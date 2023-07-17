@@ -1,0 +1,20 @@
+ Implementation of the manuscript entitled "Implant-Friendly MRI of Deep Brain Stimulation Electrodes at 7T":
+ 
+ **Perform B1 mapping on two planes (P1:tip & P2:shaft given in the manuscript) then run the sctripts in this order:
+
+1. Data_extractor_Lead1.m --> output: B1_Lead1_Chs.mat "B1 maps corresponding to each channel"
+
+2. Current_Zero_modes_calculator_Lead1.m --> output: Currents_Lead1.mat "corresponding to each channel"
+
+3. NullSpace_of_current_Lead1.m --> output: INullSpace_Lead1.mat "Null space of the current comprised of the implant-friendly modes (I=0) for lead 1"
+
+ **If this is a unilateral configuration stop here, otherwise proceed to calculate the IF modes for lead 2
+
+4. Data_extractor_Lead2.m --> output: B1_Lead2_IF1.mat "B1 maps corresponding to IF modes of lead 1"
+
+5. Current_Zero_modes_calculator_Lead2.m --> output: Currents_Lead2.mat "corresponding to IF modes for Lead 1"
+
+6. NullSpace_of_current_Leads.m --> output: INullSpace.mat "Null space of the current comprised of the IF modes for both leads"
+
+Now, you can use the implant-friendly modes with any suitable shimming scenarios.
+
